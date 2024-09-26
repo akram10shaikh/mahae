@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block 'title' %} Profile {% endblock %}
+{% block 'content' %}
+{% load static %}
+
+<div class="row">
+    <div class="col col-sm-12 mt-3">
+        <h2 align="center">Services Available</h2>
+    </div>
+</div>
+<br><br>
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>No</th>
+            <th>Documents</th>
+            <th>Apply</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Residence Certificate Registration Form</td>
+            <td><a href="{% url 'person_detail' %}" class="btn btn-primary" >Apply </a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Nationality Certificate Registration Form</td>
+            <td><a href="{% url 'nationality' %}" class="btn btn-primary" >Apply </a></td>
+    </table>
+</div>
+
+{% endblock %}

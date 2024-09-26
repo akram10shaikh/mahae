@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block 'title' %} MahaOnline {% endblock %}
+{% block 'content' %}
+{% load static %}
+
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card" style="width:290px">
+            <img src="{% static 'images/vle.png'  %}" width="100%" >
+            <div class="card-body">
+                <form action="{% url 'login_user' %}" method="POST">
+                  {% csrf_token %}
+                    <div class="mb-3 mt-3">
+                      <input type="text" class="form-control" id="user1" placeholder="User ID" name="user" required>
+                    </div>
+                    <div class="mb-3">
+                      <input type="password" class="form-control" id="password1" placeholder="Password" name="password" required>
+                    </div>
+                    <div class="mb-3" align="right">
+                        <button type="submit" class="btn btn-success">Submit</button><br>
+                        {% comment %} <a href="{% url 'person_detail' %}">Next Page</a><br>
+                        <a href="{% url 'doc_detail' %}">Doc Page</a> {% endcomment %}
+                    </div>
+                    {% if message %}
+                    <div class="mb-3">
+                      <p style='color:red'>{{ message }}</p>
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card" style="width:290px">
+            <img src="{% static 'images/highlights.png'  %}" width="100%" >
+            <div class="card-body" style="padding-top:195px;">
+            </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card" style="width:290px">
+            <img src="{% static 'images/common.png'  %}" width="100%" >
+            <div class="card-body" style="padding-top:195px;">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

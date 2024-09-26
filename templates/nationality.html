@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block 'title' %} Nationality {% endblock %}
+{% block 'content' %}
+{% load static %}
+
+<div class="container mt-3">
+    <div class="row">
+    <div class="col col-sm-12 mt-3">
+        <h2 align="center">Nationality Registraion Form</h2>
+<form action="{% url 'save_detail' %}" method="POST" class="mt-3" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3 mt-3">
+        <label for="doc">Document</label><br>
+        <select id="doc" name="doc" style="margin-top:8px;width:200px;height:35px" required>
+            <option value="Nationality Certificate">Nationality Certificate</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="first_name">First Name :</label>
+                <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="first_name" required>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="second_name">Second Name :</label>
+                <input type="text" class="form-control" id="second_name" placeholder="Enter Second Name" name="second_name" required>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="last_name">Last Name :</label>
+                <input type="text" class="form-control" id="last_name" placeholder="Enter Last Name" name="last_name" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="father_name">Father Name :</label>
+                <input type="text" class="form-control" id="father_name" placeholder="Enter Father Name" name="father_name" required>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="date" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="date" placeholder="Enter Date of Birth" name="date_of_birth" required>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="gender">Gender</label><br>
+                <select id="gender" name="gender" style="margin-top:8px;width:200px;height:35px" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="mb-3 mt-3">
+                <label for="address">Address :</label>
+                <textarea class="form-control" rows="2" id="address" name="address" required></textarea>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="city">City :</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter City" name="city" required>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="state">State :</label>
+                <input type="text" class="form-control" id="state" placeholder="Enter State" name="state" required>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="pincode">Pincode :</label>
+                <input type="number" class="form-control" id="pincode" placeholder="Enter Pincode" name="pincode" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="education">Education</label><br>
+                <select id="education" name="education" style="margin-top:2px;width:100%;height:35px" required>
+                    <option value="below 10">Below 10th</option>
+                    <option value="10th">10th</option>
+                    <option value="12th">12th</option>
+                    <option value="degree">Degree</option>
+                    <option value="master degree">Master Degree</option>
+                </select>
+            </div>
+        </div>
+        <div class="col col-sm-8">
+            <div class="mb-3 mt-3">
+                <label for="university_name">School/College/University :</label>
+                <input type="text" class="form-control" id="university_name" placeholder="Enter School/College/University" name="university_name" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="date_of_addmission">Date of Addmission :</label>
+                <input type="date" class="form-control" id="date_of_addmission" placeholder="Enter Date of Addmission" name="date_of_addmission" required>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="date_of_leaving">Date of Leaving :</label>
+                <input type="date" class="form-control" id="date_of_leaving" placeholder="Enter Date of Leaving" name="date_of_leaving" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="aadhar">Aadhar Card :</label>
+                <input type="number" class="form-control" id="aadhar" placeholder="Enter Aadhar Card" name="aadhar" required>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="pan">Pan Card :</label>
+                <input type="text" class="form-control" id="pan" placeholder="Enter Pan Card" name="pan" required>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="mb-3 mt-3">
+                <label for="phone">Phone No :</label>
+                <input type="number" class="form-control" id="phone" placeholder="Enter Phon No" name="phone_no" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3">
+            <label for="photo" class="form-label">Upload the photo</label>
+            <input type="file" name="photo" required class="form-control">
+
+          </div>
+    </div>
+    <div align="center" class="mt-3">
+        <button type="submit" class="btn btn-primary" style="width:150px;">Submit</button>
+    </div>
+    </form>
+
+
+</div>
+</div>
+
+</div>
+
+{% endblock %}

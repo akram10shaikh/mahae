@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block 'title' %} Profile {% endblock %}
+{% block 'content' %}
+{% load static %}
+<div class="row">
+    <div class="col col-sm-4">
+        <h2 align="center">Profile Information</h2>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col col-sm-12 mt-5">
+        <table class="table" style="margin-bottom:80px;">
+          <tr>
+            <td>UserName : </td>
+            <td>{{ request.user.username }}</td>
+          </tr>
+          <tr>
+            <td>Email : </td>
+            <td>{{ request.user.email }}
+          </tr>
+        </table>
+    </div>
+
+  </div>
+{% endblock %}

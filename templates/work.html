@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block 'title' %}Work {% endblock %}
+{% block 'content' %}
+{% load static %}
+<div class="col col-sm-12 mt-3">
+    <h2 align="center">Document Work History</h2>
+</div>
+<div class="table">
+<table class="table mt-5">
+    {% if data %}
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Document</th>
+        <th>Date and Time</th>
+        <th>Status</th>
+        <th>Download</th>
+    </tr>
+    {% endif %}
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.last_name }} {{ i.first_name }} {{ i.second_name }}</td>
+        <td>{{ i.doc_for }}</td>
+        <td>{{ i.dateandtime }}</td>
+        <td>{{ i.progress }}</td>
+        <td>
+            {% if i.progress == "Success"%}
+                {% if i.doc_for == "Residential Certificate"  %}
+                    <a href="{% url 'print_residential' i.no %}" class="btn btn-primary">Download</a>
+                {% endif %}
+                {% if i.doc_for == "Nationality Certificate" %}
+                    <a href="{% url 'print_n' i.no %}" class="btn btn-primary">Download</a>
+                {% endif %}
+            {% endif %}
+        </td>
+    </tr>
+    {% empty %}
+        <h5 style="padding:50px">No record Available</h5>
+    {% endfor %}
+</table>
+</div>
+
+{% endblock %}
